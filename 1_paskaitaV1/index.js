@@ -14,6 +14,16 @@ app.get('/today', (req, res)=>{
     res.send(new Date().toDateString());
 });
 
+app.get('/user', (req, res)=>{
+    const user = {
+        name: "Skaidre",
+        surname: "Petraviciene",
+        age: 50,
+    };
+    res.send(user);
+});
+
+
 //serverio paleidimas
 app.listen(port, () => {
     console.log('Server is listening on port ${port}');
