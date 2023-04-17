@@ -1,10 +1,24 @@
+// {
+//     "title": "My first Node.js application (čia rašom apso pavadinimą)",
+//     "version": "1.0",
+//     "scripts": {
+//         "start": "node index.js"
+//     },
+//     "dependencies": {
+//         "casual": "^1.6.2"
+//     }
+// }
+
+
 {
-    "title": "My first Node.js application (čia rašom apso pavadinimą)",
+    "title": "Backend + frontend",
     "version": "1.0",
     "scripts": {
-        "start": "node index.js"
+      "start": "node index.js"
     },
     "dependencies": {
-        "casual": "^1.6.2"
+      "cors": "^2.8.5",
+      "express": "^4.18.2"
     }
-}
+  }
+  
