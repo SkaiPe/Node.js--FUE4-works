@@ -1,33 +1,33 @@
-const express = require("express"); // experes importas
-const cors = require("cors"); //cors imports
-const app = express(); // express aplikacijos iniciavimas
+const express = require("express"); // express importas
+const cors = require("cors"); // CORS importas
+const app = express(); // express aplikacijos inicijavimas
 
-app.use(express.json()); //aplikacija priima duomenis JSON formatu
-app.use(cors()); //aplikacija naudoja CORS apsaugą 
+app.use(express.json()); // aplikacija priima duomenis JSON formatu
+app.use(cors()); // aplikacija naudoja CORS apsaugą
 
-const port = 3000; //kanalas reikalingas serveriui
+const port = 3000; // kanalas reikalingas serveriui
 
-const cars = ["Audi"];
+const cars = ["mercedes"];
 
-//GET kelias, kuris grąžina duomenis
+// GET kelias, kuris grąžina duomenis
 app.get("/", (req, res) => {
-    //res (response)        - duomenys, kuriuos mes grąžiname
-  res.send(cars); // res.send  - metodas kuris grąžina siuntėjui(klientui) atsakymą
+  // res (response) - duomenys kuriuos mes grąžinam
+  res.send(cars); // res.send() - metodas kuris grąžina klientui atsakymą
 });
 
 app.post("/", (req, res) => {
-    //req (reqest)  - duomenys, kuriuos gauna iš išorės
-    //req.body - pagrindiniai duomenys iš išorės
+  // req (request) - duomenys kuriuos mes gaunam iš išorės
+  // req.body - pagrindiniai duomenys iš išorės
   const car = req.body.car;
-  console. log(req.body.car);
+  console.log(req.body);
   cars.push(car);
-  res.send(req.body); //POST dalyje siunčiame atgal klientui, tai ką jis pats atsiuntė mums
+  res.send(req.body); // POST dalyje siunčiam atgal klientui, tai ką jis pats atsiuntė mum
 });
 
-//app.listen - metodas, kuris paleidžia klausytis musū sarverio nurodytu kanalu
+// app.listen() - metodas kuris paleidžia klausytis mūsų serverio nurodytu kanalu
 // port - kanalas
-//()=>{}funkcija, kuri pasileid=ia, kai serveris startuoja
-//console.log naudojam, kad =inotume kokiu kanalu paleid=ia server6
+// () => {} - funkcija kuri pasileidžia, kai serveris startuoja
+// console.log naudojam, kad žinoti kokiu kanalu paleido serverį
 app.listen(port, () => {
-  console.log(`Server is running on the ${port}`);
+  console.log(`Server is running on the http://localhost:${port}/`);
 });
