@@ -7,16 +7,16 @@ app.use(cors());
 
 const port = 3000;
 
-const products = [];
+const users = [];
 
-app.get("/products", (req, res) => {
-  res.send(products);
+app.get("/users", (req, res) => {
+  res.send(users);
 });
 
-app.post("/products", (req, res) => {
-  const product = { name: req.body.name, price: req.body.price }; // sukuria objekta is siunciamo body
-  products.push(product);
-  res.send(product);
+app.post("/users", (req, res) => {
+  const users = { name: req.body.name, price: req.body.price }; // sukuria objekta is siunciamo body
+  users.push(users);
+  res.send(users);
 });
 
 app.listen(port, () => {
