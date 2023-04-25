@@ -1,0 +1,12 @@
+{
+    "title": "6 paskaita Savarrankiškas Postman",
+    "version": "0.1",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.18.2",
+      "slugify": "^1.6.6"
+    }
+  }
