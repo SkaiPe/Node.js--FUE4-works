@@ -14,8 +14,6 @@
 
 const express = require("express");
 const cors = require("cors");
-const data = require("./data"); // importuojam duomenis
-const slugify = require("slugify");
 const port = 3000;
 
 const app = express();
@@ -83,7 +81,7 @@ app.post("/products", (req, res) => {
   } else {
     data.push(newProduct);
     res.send(req.body);
-  }
+  
 });
 
 app.listen(port, () => console.log(`Server started on port ${port}...`));
