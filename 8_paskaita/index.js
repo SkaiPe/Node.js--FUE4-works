@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+
 require('dotenv').config();
 
 const port = process.env.PORT || 8080;
@@ -8,10 +9,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const todos = [];
+const posts = [];
 
-app.get('/todos', (req, res) => {
-  res.send(todos);
+app.get('/posts', (req, res) => {
+  res.send(posts);
 });
 
 // {id, title, done}
@@ -35,9 +36,9 @@ app.get('/todos/:id', (req, res) => {
   }
 });
 
-app.delete('/todos/:id', (req, res) => {
+app.delete('/posts/:id', (req, res) => {
   const id = +req.params.id;
-  const foundIndex = todos.findIndex((todo) => todo.id === id); // randa 0-begalybės, neranda -1
+  const foundIndex = posts.findIndex((todo) => todo.id === id); // randa 0-begalybės, neranda -1
   if (foundIndex !== -1) {
     // jeigu randa
     const deletingTodo = todos.find((todo) => todo.id === id);

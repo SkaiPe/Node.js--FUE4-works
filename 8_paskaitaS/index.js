@@ -6,6 +6,7 @@
 
 const express = require('express');
 const cors = require('cors');
+
 require('dotenv').config();
 
 const port = process.env.PORT || 8080;
@@ -14,58 +15,60 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const day = [];
+const posts = [];
 
-app.get('/day', (req, res) => {
-  res.send(days);
+app.get('/posts', (req, res) => {
+  res.json(posts);
 });
 
-// {id, title, done}
-app.post('/day', (req, res) => {
-  const day = req.body;
-  const newDay = { id: day.length + 1, ...day }; // pridedamas id prie siunčiamo objekto
-  days.push(newDay); // pridedama į masyvą
-  res.send(newDay); // išsiunčiamas response
+// {title: “gera diena”, description: “šiandien yra gera diena”, active: true}
+app.post('/posts', (req, res) => {
+  const post = req.body;
+  const newPost = { id: posts.length + 1, ...day }; // pridedamas id prie siunčiamo objekto
+  posts.push(newPost); // pridedama į masyvą
+  res.send(newPost); // išsiunčiamas response
 });
 
-app.get('/days/:id', (req, res) => {
+app.get('/posts/:id', (req, res) => {
   const id = +req.params.id;
-  const foundDay = todos.find((day) => day.id === id); // randa {...}, jei ne undefined
-  if (foundDay) {
+  const foundPost = posts.find((post) => day.id === id); // randa {...}, jei ne undefined
+  if (foundPost) {
     // jeigu randa
-    res.send(foundDay);
+    res.send(foundPost);
   } else {
     // jeigu neranda - 404 not found
     // res.status() - grąžina statusą
-    res.status(404).send({ message: 'Day not found' });
+    res.status(404).send({ message: 'Post not found' });
   }
 });
 
-app.delete('/days/:id', (req, res) => {
+app.delete('/posts/:id', (req, res) => {
   const id = +req.params.id;
-  const foundIndex = day.findIndex((day) => day.id === id); // randa 0-begalybės, neranda -1
+  const foundIndex = posts.findIndex((post) => post.id === id); // randa 0-begalybės, neranda -1
   if (foundIndex !== -1) {
     // jeigu randa
-    const deletingDay = days.find((day) => day.id === id);
-    days.splice(foundIndex, 1);
-    res.send(deletingDay); // grąžinam elementą kurį trinam
+    const deletingPost = posts.find((post) => post.id === id);
+    posts.splice(foundIndex, 1);
+    res.send(deletingPost); // grąžinam elementą kurį trinam
   } else {
     // jeigu neranda
-    res.status(404).send({ message: 'Day not found' });
+    res.status(404).send({ message: 'Post not found' });
   }
 });
 
-app.put('/days/:id', (req, res) => {
+app.put('/posts/:id', (req, res) => {
   const id = +req.params.id;
-  const foundIndex = days.findIndex((day) => days.id === id);
+  const foundIndex = posts.findIndex((post) => post.id === id);
   if (foundIndex !== -1) {
-    const day = req.body; // naujai siunčiamas todo
-    const updatingDay = { id, ...day }; // senas id + naujas todo
-    days.splice(foundIndex, 1, updatingDay); // užkeičiamas atnaujintas todo
-    res.send(updatingTodo);
+    const posr = req.body; // naujai siunčiamas todo
+    const updatingPost = { id, ...post }; // senas id + naujas post
+    posts.splice(foundIndex, 1, updatingPost); // užkeičiamas atnaujintas post
+    res.send(updatingPost);
   } else {
-    res.status(404).send({ message: 'Todo not found' });
+    res.status(404).send({ message: 'post not found' });
   }
 });
 
-app.listen(port, () => console.log(`Server started on port ${port}...`));
+app.listen(port, () => {
+  console.log(`Server started on port ${port}...`);
+});
