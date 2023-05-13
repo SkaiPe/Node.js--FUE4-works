@@ -113,7 +113,11 @@ app.get('/users', async (req, res) => {
 app.get('/users', async (req, res) => {
   try {
     const con = await client.connect();
-    const data = await con.db(dbName).collection('users').find().toArray();
+    const data = await con
+    .db(dbName)
+    .collection('users')
+    .find()
+    .toArray();
     await con.close();
     if (data.length === 0) {
       res.status(404).send('No users found');
