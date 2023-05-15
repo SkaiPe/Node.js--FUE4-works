@@ -1,0 +1,29 @@
+ body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        /* Čia galite pridėti kitus bendrus stilių aprašymus */
+        background-color: #e9f9f8;}
+
+nav a{
+    text-decoration: none;
+    margin: 0 20px;
+}
+button{
+    background-color: rgb(9, 104, 246);
+    color: white;
+}  
+
+
+/* .submit {
+    background-color: blue; /* Numatytoji mygtuko spalva */
+    color: white; /* Numatytoji teksto spalva */
+  
+   */
+button.clicked {
+    background-color: rgb(124, 7, 124); /* Paspaudus mygtuką, spalva bus pakeista į raudoną */
+  }
+footer{
+    text-align: center;
+    padding: 1rem 0;
+} 

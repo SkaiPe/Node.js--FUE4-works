@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <link rel="stylesheet" href="ucreate.css"
+</head>
+<body>
+    <!-- //4, paskutinis langas sukuria uzeri pagal planus -->
+    <header>
+        <nav>
+          <ul>
+            <li><a href="managementM.html">Memberships</a></li>
+            <li><a href="ucreate.html">User</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <h1>Create User</h1>
+        <form id="create User">
+                
+          <label for="name">Name</label>
+          <input type="text" placeholder="Name" id="name" name="name" required />
+          <br>
+          <label for="surname">Surname</label>
+          <input type="text"placeholder="Surname" id="surname" name="surname"  required />
+          <br>
+          <label for="email">Email</label>
+          <input type="text" placeholder="Email" id="email" name="email"  required />
+          <br>
+          <label for="membershipType">Change Membership </label>
+          <select id="membershipType" name="membershipType" required>
+              <option value="option1">Trial</option>
+              <option value="option2">Bonze</option>
+              <option value="option3">Silver</option>
+              <option value="option4">Gold</option>
+              <option value="option5">Platinum</option>
+              
+
+            </select>
+        </select>
+        <br>
+        <button type="button" id="cancel-btn" class="btn">Cancel</button>
+        <button type="submit" id="submit-btn" class="btn">New User</button>
+         </ul> 
+        </form>
+    </main>
+        <footer>
+          <p>Copyright &copy; 2023 Membership Manager</p>
+        </footer>
+        
+        <script src="./ucreate.js"></script>
+        <script src="index.js"></script>
+</body>
+</html>
