@@ -18,7 +18,7 @@ async function addMembership(event) {
   const data = await response.json();
 
   // Redirect back to the membership list page
-  window.location.href = 'index.html';
+  window.location.href = 'management_m.html';
 }
 
 // Add event listener to handle form submission and add a new membership
